@@ -1,9 +1,5 @@
-/* --- API Integration --- */
-
-// API URL
 const apiUrl = "https://dummyjson.com/products";
 
-// Error handling
 const handleErrors = (response) => {
   if (!response.ok) {
     throw Error(response.statusText);
@@ -11,7 +7,7 @@ const handleErrors = (response) => {
   return response;
 };
 
-// Fetching
+
 fetch(apiUrl)
   .then(handleErrors)
   .then((response) => response.json())
@@ -25,8 +21,6 @@ fetch(apiUrl)
   .catch((error) => {
     console.error("Error occured during fetching data:", error.message);
   });
-/* --- End of API Integration --- */
-
 
 const displayProducts = (productList) => {
   const productListElement = document.getElementById("app");
@@ -50,6 +44,7 @@ const displayProducts = (productList) => {
       productListElement.appendChild(productElement);
     });
 }
+
 
 const productPage = (product) => {
   const productPageContainer = document.createElement("div");
