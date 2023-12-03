@@ -8,6 +8,8 @@ const handleErrors = (response) => {
 };
 
 let productList = []
+const itemsPerPage = 10;
+let currentPage = 1;
 
 const fetchProducts = () => {
 fetch(apiUrl)
@@ -30,11 +32,35 @@ const displayProducts = (productList) => {
 
   productListElement.innerHTML = "";
 
-  productList.forEach((product) => {
-      const productElement = createProductElement(product);
-      productListElement.appendChild(productElement);
-    });
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const displayedProducts = productList.slice(startIndex, endIndex);
+
+  displayedProducts.forEach((product) => {
+    const productElement = createProductElement(product);
+    productListElement.appendChild(productElement);
+  });
+
+  createPagination(productList.length);
 }
+
+const createPagination = (totalItems) => {
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
+  const paginationContainer = document.getElementById("pagination-container");
+  paginationContainer.innerHTML = "";
+
+  for (let i = 1; i <= totalPages; i++) {
+    const pageButton = document.createElement("button");
+    pageButton.innerText = i;
+    pageButton.addEventListener("click", () => changePage(i));
+    paginationContainer.appendChild(pageButton);
+  }
+};
+
+const changePage = (newPage) => {
+  currentPage = newPage;
+  fetchProducts();
+};
 
 const createProductElement = (product) => {
   const productElement = document.createElement("div");
