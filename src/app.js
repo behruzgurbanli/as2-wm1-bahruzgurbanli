@@ -33,6 +33,9 @@ const displayProducts = (productList) => {
 
   productList.forEach((product) => {
       const productElement = document.createElement("div");
+
+  productElement.classList.add("product-item");
+
       productElement.innerHTML = `
                 <h2>${product.title}</h2>
                 <p>Price: ${product.price}</p>
@@ -41,7 +44,6 @@ const displayProducts = (productList) => {
                 <p>Description: ${product.description}</p>
                 <p>Stock: ${product.stock}</p>
                 <img src="${product.thumbnail}" alt="${product.title}" style="max-width: 200px; max-height: 200px;">
-                <hr>
             `;
 
       productListElement.appendChild(productElement);
