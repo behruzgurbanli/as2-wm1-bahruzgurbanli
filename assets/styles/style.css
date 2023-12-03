@@ -112,3 +112,13 @@ body {
     transform: scale(1.5);
   }
   
+
+  #filter-container {
+    margin: 10px;
+  }
+  
+  #search-input {
+    margin: 10px;
+  }
+
+  
