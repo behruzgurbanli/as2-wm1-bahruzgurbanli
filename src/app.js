@@ -16,11 +16,22 @@ fetch(apiUrl)
   .then(handleErrors)
   .then((response) => response.json())
   .then((data) => {
-    const products = data.products || [];
+    const productList = data.products || [];
 
-    const productListElement = document.getElementById("listOfProducts");
+    displayProducts(productList);
 
-    products.forEach((product) => {
+    
+  })
+  .catch((error) => {
+    console.error("Error occured during fetching data:", error.message);
+  });
+/* --- End of API Integration --- */
+
+
+const displayProducts = (productList) => {
+  const productListElement = document.getElementById("app");
+
+  productList.forEach((product) => {
       const productElement = document.createElement("div");
       productElement.innerHTML = `
                 <h2>${product.title}</h2>
@@ -35,8 +46,4 @@ fetch(apiUrl)
 
       productListElement.appendChild(productElement);
     });
-  })
-  .catch((error) => {
-    console.error("Error occured during fetching data:", error.message);
-  });
-/* --- End of API Integration --- */
+}
