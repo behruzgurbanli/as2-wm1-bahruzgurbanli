@@ -6,6 +6,7 @@ const searchProducts = (keyword) => {
       product.description.toLowerCase().includes(keyword) ||
       product.category.toLowerCase().includes(keyword)
   );
+  currentPage = 1;
   displayProducts(filteredProducts);
 };
 
@@ -35,6 +36,7 @@ const filterByCategory = (category) => {
   const filteredProducts = category
     ? productList.filter((product) => product.category === category)
     : productList;
+  currentPage = 1;
   displayProducts(filteredProducts);
 };
 
