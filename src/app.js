@@ -25,12 +25,13 @@ fetch(apiUrl)
     displayProducts(categories);
     displayProducts(productList);
 
-    categoryFilterInput.addEventListener("change", filter);
-    searchingFilterInput.addEventListener("input", filter);
+    categoryFilterInput.addEventListener("change", categoryFilter());
+    searchingFilterInput.addEventListener("input", searchProducts(searchingFilterInput));
 
+    categoryFilter();
     displayProducts(productList);
   })
   .catch((error) => {
-    console.error("Error occured during fetching data:", error.message);
+    console.error("Error:", error.message);
   });
 }
