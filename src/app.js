@@ -1,4 +1,4 @@
-const apiUrl = "https://dummyjson.com/products";
+const apiUrl = "https://dummyjson.com/products?limit=100";
 
 const handleErrors = (response) => {
   if (!response.ok) {
@@ -71,7 +71,6 @@ const createProductElement = (product) => {
                 <p>Price: ${product.price}</p>
                 <p>Discount: ${product.discountPercentage}%</p>
                 <p>Category: ${product.category}</p>
-                <p>Description: ${product.description}</p>
                 <p>Stock: ${product.stock}</p>
                 <img src="${product.thumbnail}" alt="${product.title}" style="max-width: 200px; max-height: 200px;">
             `;
@@ -98,7 +97,7 @@ const categoryFilter = () => {
   })
 
   const filterContainer = document.getElementById("filter-container");
-  filterContainer.innerHTML = "";
+  // filterContainer.innerHTML = "";
   filterContainer.appendChild(selectBox);
 }
 
