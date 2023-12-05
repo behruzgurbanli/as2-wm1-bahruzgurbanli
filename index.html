@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The main page</title>
-    <link rel="stylesheet" href="assets/styles/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Products</title>
+    <link rel="stylesheet" href="assets/styles/style.css" />
     <script src="src/app.js"></script>
-</head>
-<body>
+    <script src="src/filter.js"></script>
+    <script src="src/gallery.js"></script>
+    <script src="src/pagination.js"></script>
+    <script src="src/product.js"></script>
+  </head>
+  <body>
     <div id="filter-container">
-    <input type="text" name="Search" id="search-input" placeholder="Search">
+      <select id="category">
+        <option value="">All</option>
+      </select>
+      <input type="text" id="search" placeholder="Search" />
     </div>
-    <br>
+    <br />
     <div id="app"></div>
     <div id="pagination-container" class="pagination"></div>
-</body>
+  </body>
 </html>
