@@ -121,12 +121,12 @@ body {
     width:150px;
     height:25px;
     padding:5px;
-    float: right;
   }
 
   select{
     width:150px;
     text-align: center;
+    float: right;
   }
 
   

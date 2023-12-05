@@ -11,7 +11,6 @@ const displayProducts = (productList) => {
     const productElement = createProductElement(product);
     productListElement.appendChild(productElement);
   });
-  categoryFilter();
   createPagination(productList.length);
 };
 

@@ -17,17 +17,6 @@ fetch(apiUrl)
   .then((response) => response.json())
   .then((data) => {
     productList = data.products || [];
-
-    const categoryFilterInput = document.getElementById('category');
-    const searchingFilterInput = document.getElementById('search');
-
-    const categories = getProductCategories();
-    displayProducts(categories);
-    displayProducts(productList);
-
-    categoryFilterInput.addEventListener("change", categoryFilter());
-    searchingFilterInput.addEventListener("input", searchProducts(searchingFilterInput));
-
     categoryFilter();
     displayProducts(productList);
   })
